@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-list.component.css']
 })
 export class VideoListComponent implements OnInit {
+  public videos = ['video 1', 'video 2', 'video 3', 'video 4'];
 
   constructor() { }
 
