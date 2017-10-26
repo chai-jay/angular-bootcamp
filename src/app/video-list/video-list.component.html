@@ -1,1 +1,1 @@
-<app-video *ngFor="let video of videos"></app-video>
+<app-video *ngFor="let video of videos" (click)="onSelectVideo(video)" [class.selected]="selectedVideo === video"></app-video>
