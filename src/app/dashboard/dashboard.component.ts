@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Video, videos } from '../data';
+import { Observable } from 'rxjs/Observable';
+
+import { Video } from '../data';
+import { VideoService } from './../video.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,12 +10,13 @@ import { Video, videos } from '../data';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  public videos: Video[] = videos;
+  public videos: Observable<Video[]>;
   public selectedVideo: Video;
 
-  constructor() { }
+  constructor(private videoService: VideoService) { }
 
   ngOnInit() {
+    this.videos = this.videoService.getVideos();
   }
 
   public onVideoClicked(video: Video) {

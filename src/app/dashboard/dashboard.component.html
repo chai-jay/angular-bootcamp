@@ -1,6 +1,6 @@
 <div class="grid">
   <span class="left">
-    <app-video-list [videos]="videos" [selectedVideo]="selectedVideo" (videoClicked)="onVideoClicked($event)"></app-video-list>
+    <app-video-list [videos]="videos | async" [selectedVideo]="selectedVideo" (videoClicked)="onVideoClicked($event)"></app-video-list>
   </span>
   <span class="middle" *ngIf="selectedVideo; else noVideo">
     <app-video-embedder [videoId]="selectedVideo.id"></app-video-embedder>
