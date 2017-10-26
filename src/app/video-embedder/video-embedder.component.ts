@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-video-embedder',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-embedder.component.css']
 })
 export class VideoEmbedderComponent implements OnInit {
+  @Input() videoId: string;
 
   constructor() { }
 

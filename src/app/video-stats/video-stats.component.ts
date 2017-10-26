@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { View } from './../data';
 
 @Component({
   selector: 'app-video-stats',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-stats.component.css']
 })
 export class VideoStatsComponent implements OnInit {
+  @Input() stats: View[];
 
   constructor() { }
 
