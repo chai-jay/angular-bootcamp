@@ -1,3 +1,14 @@
-<p>
-  stats-filter works!
-</p>
+<form [formGroup]="form">
+  <input type="radio" formControlName="region" value="North America"> North America
+  <input type="radio" formControlName="region" value="Europe"> Europe
+  <input type="radio" formControlName="region" value="Asia"> Asia
+  <input type="radio" formControlName="region" value="All"> All <br>
+  Start Date: <input type="date" formControlName="startDate"> <br>
+  End Date: <input type="date" formControlName="endDate"> <br>
+  <label for="under18">Under 18</label><input id="under18" type="checkbox" formControlName="under18"> <br>
+  <label for="18to40">18 to 40</label><input id="18to40" type="checkbox" formControlName="18to40"> <br>
+  <label for="40to60">40 to 60</label><input id="40to60" type="checkbox" formControlName="40to60"> <br>
+  <label for="60plus">60 Plus</label><input id="60plus" type="checkbox" formControlName="60plus"> <br>
+</form>
+
+<pre>{{ form.value | json}}</pre>

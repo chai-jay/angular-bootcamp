@@ -1,1 +1,2 @@
 <app-video *ngFor="let video of videos" (click)="onSelectVideo(video)" [class.selected]="selectedVideo?.id === video.id" [video]="video"></app-video>
+<span *ngIf="videos?.length == 0">No videos available</span>

@@ -1,10 +1,10 @@
 <div class="grid">
   <span class="left">
-    <app-video-list [videos]="videos | async" [selectedVideo]="selectedVideo" (videoClicked)="onVideoClicked($event)"></app-video-list>
+    <app-video-list [videos]="videos | async" [selectedVideo]="selectedVideo | async" (videoClicked)="onVideoClicked($event)"></app-video-list>
   </span>
-  <span class="middle" *ngIf="selectedVideo; else noVideo">
-    <app-video-embedder [videoId]="selectedVideo.id"></app-video-embedder>
-    <app-video-stats [stats]="selectedVideo.viewDetails"></app-video-stats>
+  <span class="middle" *ngIf="selectedVideo | async; else noVideo">
+    <app-video-embedder [videoId]="(selectedVideo | async).id"></app-video-embedder>
+    <app-video-stats [stats]="filteredViews | async"></app-video-stats>
   </span>
   <ng-template #noVideo>
     <span class="middle">
@@ -12,6 +12,6 @@
     </span>
   </ng-template>
   <span class="right">
-    <app-stats-filter></app-stats-filter>
+    <app-stats-filter [filter]="filter | async" (onFilterChange)="setFilter($event)"></app-stats-filter>
   </span>
 </div>

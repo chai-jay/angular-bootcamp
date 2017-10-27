@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { VideoService } from './video.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +12,8 @@ import { VideoEmbedderComponent } from './video-embedder/video-embedder.componen
 import { VideoStatsComponent } from './video-stats/video-stats.component';
 import { StatsFilterComponent } from './stats-filter/stats-filter.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StoreModule } from '@ngrx/store';
+import { videosReducer, selectedVideoReducer, setFilterReducer } from './state';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    StoreModule.forRoot({
+      videos: videosReducer,
+      selectedVideo: selectedVideoReducer,
+      filter: setFilterReducer
+    })
   ],
   providers: [
     VideoService
