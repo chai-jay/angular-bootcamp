@@ -22,7 +22,9 @@ export class DashboardComponent implements OnDestroy {
   sub: Subscription;
 
   constructor(private videoService: VideoService, private store: Store<AppState>) {
-    this.sub = videoService.getVideos().subscribe(vl => store.dispatch(new VideosArrivedAction(vl)));
+    // Don't need this line because we use an ngrx Effect to fire this request.
+    // this.sub = videoService.getVideos().subscribe(vl => store.dispatch(new VideosArrivedAction(vl)));
+
     this.videos = store.select(s => s.videos);
     this.selectedVideo = store.select(s => s.selectedVideo);
     this.filter = store.select(s => s.filter);
